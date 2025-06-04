@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cidadãos - GESUAS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-users"></i> GESUAS</h1>
+            <div class="subtitle">Software para assistência social</div>
+        </div>
+        
+        <div class="content">
+            <div class="messages-container">
+                <?php if (isset($_SESSION['success'])): ?>
+                    <div class="message success">
+                        <i class="fas fa-check-circle icon-large"></i>
+                        <div><?= $_SESSION['success'] ?></div>
+                    </div>
+                    <?php unset($_SESSION['success']); ?>
+                <?php endif; ?>
+                
+                <?php if (isset($_SESSION['error'])): ?>
+                    <div class="message error">
+                        <i class="fas fa-exclamation-triangle icon-large"></i>
+                        <div><?= $_SESSION['error'] ?></div>
+                    </div>
+                    <?php unset($_SESSION['error']); ?>
+                <?php endif; ?>
+            </div>
+            
+            <div class="forms-container">
+                <!-- Formulário de Cadastro -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user-plus"></i>
+                        Cadastro de Cidadão
+                    </h2>
+                    
+                    <div class="form-card">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i> Nome Completo
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    required
+                                    placeholder="Digite o nome completo do cidadão"
+                                >
+                            </div>
+                            <div class="button-container">
+                                <button type="submit">
+                                    <i class="fas fa-save"></i>
+                                    Cadastrar Cidadão
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Formulário de Consulta -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-search"></i>
+                        Consulta de NIS
+                    </h2>
+                    
+                    <div class="form-card">
+                        <form action="/search.php" method="GET">
+                            <div class="form-group">
+                                <label for="nis_search">
+                                    <i class="fas fa-id-card"></i> Número NIS
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="nis_search" 
+                                    name="nis" 
+                                    required
+                                    pattern="\d{11}"
+                                    title="Digite exatamente 11 dígitos"
+                                    placeholder="Digite o número NIS (11 dígitos)"
+                                    maxlength="11"
+                                >
+                            </div>
+                            <div class="button-container">
+                                <button type="submit">
+                                    <i class="fas fa-search"></i>
+                                    Consultar NIS
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <i class="fas fa-shield-alt"></i>
+           GESUAS - Software para assistência social
+        </div>
+    </div>
+</body>
+</html>

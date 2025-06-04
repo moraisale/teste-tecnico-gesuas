@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta NIS - GESUAS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/result.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-search"></i> Resultado da Consulta</h1>
+            <div class="subtitle">Sistema GESUAS - Consulta de NIS</div>
+        </div>
+        
+        <div class="content">
+            <?php if ($citizen): ?>
+                <div class="message success">
+                    <i class="fas fa-check-circle icon-large"></i>
+                    <div>
+                        <strong>Cidadão encontrado com sucesso!</strong>
+                        <div class="citizen-info">
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-user"></i>
+                                    <strong>Nome:</strong>
+                                </div>
+                                <div class="info-value"><?= htmlspecialchars($citizen->name) ?></div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-id-card"></i>
+                                    <strong>NIS:</strong>
+                                </div>
+                                <div class="info-value"><?= $citizen->nis ?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="message error error-content">
+                    <div class="not-found-icon">
+                        <i class="fas fa-user-slash"></i>
+                    </div>
+                    <div class="error-message">
+                        <strong>Cidadão não encontrado</strong>
+                        <p style="margin-top: 10px; opacity: 0.8;">O número NIS informado não está cadastrado no sistema.</p>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="/" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao Início
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <i class="fas fa-shield-alt"></i>
+            Sistema Oficial do Governo Federal - Caixa Econômica Federal
+        </div>
+    </div>
+</body>
+</html>
