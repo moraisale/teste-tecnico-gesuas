@@ -6,10 +6,11 @@ Sistema para cadastro e consulta de cidadãos com geração automática de NIS (
 - **Cadastro simplificado**:
   - Formulário HTML com único campo (nome)
   - Geração automática de NIS de 11 dígitos
+  - Salva cidadão no banco de dados com campo Nome e NIS
 - **Consulta por NIS**:
   - Retorna dados do cidadão ou "Não encontrado"
 
-## ⚙ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 | Componente       | Tecnologias                  |
 |------------------|-----------------------------|
 | Frontend         | HTML5 + CSS puro            |
@@ -20,7 +21,7 @@ Sistema para cadastro e consulta de cidadãos com geração automática de NIS (
 ##  Instalação
 ```bash
 # Clone o projeto
-git clone https://github.com/seu-usuario/gesuas.git
+git clone https://github.com/moraisale/teste-tecnico-gesuas.git
 
 # Instale dependências (autoload)
 composer install
@@ -34,14 +35,17 @@ php -S localhost:8000 -t public
 
 ##  Estrutura do Projeto
 ```
-gesuas/
+teste-tecnico-gesuas/
 ├── public/
-│   ├── index.php      # Ponto de entrada
+|   ├── assets/
+|       ├── index.css
+|       ├── result.css
+│   ├── index.php      # Página inicial
 │   └── search.php     # Consulta por NIS
 ├── src/
 │   ├── Model/
 │   │   ├── Citizen.php
-│   │   ├── NISGenerator.php    # Lógica de geração
+│   │   ├── NISGenerator.php    # Lógica de geração do NIS
 │   │   └── CitizenRepository.php
 │   └── Database.php   # Conexão SQLite
 ├── tests/             # Testes PHPUnit
@@ -64,11 +68,11 @@ Acesse http://localhost:8000
 
 Preencha o nome e clique em "Cadastrar Cidadão"
 
-Copie o NIS gerado e consulte no formulário ao lado
+Copie o NIS gerado e consulte no formulário ao lado clicando em "Consultar NIS"
 
 
 ##  Validações Implementadas
-| Camada   | Validações                        |
+| Camada   | Validações                         |
 |----------|------------------------------------|
 | Frontend | Campo nome obrigatório             |
 | Backend  | Formato do NIS, nome válido        |
