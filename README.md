@@ -39,12 +39,14 @@ extension=sqlite3
 ```bash
 # Clone o projeto
 git clone https://github.com/moraisale/teste-tecnico-gesuas.git
+cd teste-tecnico-gesuas
 
 # Instale dependências (autoload)
 composer install
 
 # Crie a pasta do banco de dados
 mkdir database
+chmod 777 database/  # Garante permissão de escrita
 
 # Inicie o servidor
 php -S localhost:8000 -t public
