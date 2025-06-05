@@ -18,6 +18,23 @@ Sistema para cadastro e consulta de cidadãos com geração automática de NIS (
 | Banco de Dados   | SQLite3                     |
 | Testes           | PHPUnit                     |
 
+## Pré-requisitos
+- PHP 8.0+
+- Composer instalado
+- Extensão SQLite ativada no PHP
+
+## Como Verificar Extensão SQLite:
+
+```bash
+php -m | grep sqlite
+# Deve retornar: pdo_sqlite e sqlite3
+```
+Se Falhar, no arquivo php.ini, descomente:
+```bash
+extension=pdo_sqlite
+extension=sqlite3
+```
+
 ##  Instalação
 ```bash
 # Clone o projeto
