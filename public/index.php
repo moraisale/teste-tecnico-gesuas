@@ -37,5 +37,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name'])) {
     exit;
 }
 
-// Exibe o template
 include __DIR__ . '/../templates/index.html';

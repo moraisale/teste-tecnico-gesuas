@@ -15,7 +15,6 @@ class CitizenRepository {
             ':nis' => $citizen->nis
         ]);
         
-        // Atualiza o ID do cidadão
         $citizen->id = (int) $this->pdo->lastInsertId();
     }
 
